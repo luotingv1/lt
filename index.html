@@ -329,9 +329,25 @@
 <p>减少标签的数量<br>编写 HTML 代码时，尽量避免多余的父元素。很多时候，这需要迭代和重构来实现。请看下面的案例</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- Not so great --&gt;</span><br><span class="line">&lt;span class=&quot;avatar&quot;&gt;</span><br><span class="line">  &lt;img src=&quot;...&quot;&gt;</span><br><span class="line">&lt;/span&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- Better --&gt;</span><br><span class="line">&lt;img class=&quot;avatar&quot; src=&quot;...&quot;&gt;</span><br></pre></td></tr></table></figure>
 <p>JavaScript 生成的标签<br>通过 JavaScript 生成的标签让内容变得不易查找、编辑，并且降低性能。能避免时尽量避免。</p>
-<h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><p>语法</p>
+<p>结构、表现、行为三者分离<br>尽量在文档和模板中只包含结构性的 HTML；而将所有表现代码，移入样式表中；将所有动作行为，移入脚本之中。<br>在此之外，为使得它们之间的联系尽可能的小，在文档和模板中也尽量少地引入样式和脚本文件。<br>建议：</p>
 <ul>
-<li>用两个空格来代替制表符（tab） – 这是唯一能保证在所有环境下获得一致展现的方法。(ps 建议编辑器设置tab制表符未2个空格)</li>
+<li>不使用超过一到两张样式表</li>
+<li>不使用超过一到两个脚本（学会用合并脚本）</li>
+<li>不使用行内样式（<style>.no-good {}</style>）</li>
+<li>不在元素上使用 style 属性（\<hr style="border-top: 5px solid black">）</li>
+<li>不使用行内脚本（<script>alert(‘no good’)</script>）</li>
+<li>不使用表象元素（i.e. \<b>, \<u>,\<center>, \<font>, \<b>）</b></font></center></u></b></li>
+<li><p>不使用表象 class 名（i.e. red, left, center）</p>
+<p>HTML只关注内容</p>
+</li>
+<li>TML只显示展示内容信息</li>
+<li>不要引入一些特定的 HTML 结构来解决一些视觉设计问题</li>
+<li>不要将img元素当做专门用来做视觉设计的元素</li>
+<li>样式上的问题应该使用css解决<h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1></li>
+</ul>
+<p>语法</p>
+<ul>
+<li>用两个空格来代替制表符（tab）这是唯一能保证在所有环境下获得一致展现的方法。(ps 建议编辑器设置tab制表符未2个空格)</li>
 <li>为选择器分组时，将单独的选择器单独放在一行。</li>
 <li>为了代码的易读性，在每个声明块的左花括号前添加一个空格。</li>
 <li>声明块的右花括号应当单独成行。</li>
@@ -401,6 +417,12 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">-/*</span><br><span class="line"> * Component section heading</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">.element &#123; ... &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line"> * Component section heading</span><br><span class="line"> *</span><br><span class="line"> * Sometimes you need to include optional context for the entire component. Do that up here if it&apos;s important enough.</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">.element &#123; ... &#125;</span><br><span class="line"></span><br><span class="line">/* Contextual sub-component or modifer */</span><br><span class="line">.element-heading &#123; ... &#125;</span><br></pre></td></tr></table></figure>
 <h1 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h1><p>文件命名<br>文件夹和文件名的命名应该能代表代码功能，与后端一致为佳。</p>
+<ul>
+<li>文件名不得含有空格</li>
+<li>文件名建议只使用小写字母，不使用大写字母。( 为了醒目，某些说明文件的文件名，可以使用大写字母，比如README、LICENSE。 )</li>
+<li>文件名包含多个单词时，单词之间建议使用半角的连词线 ( - ) 分隔。</li>
+<li>引入资源使用相对路径，不要指定资源所带的具体协议 ( http:,https: ) ，除非这两者协议都不可用。</li>
+</ul>
 <p>语言规范<br>声明变量必须加上 var 关键字.<br>当你没有写 var, 变量就会暴露在全局上下文中, 这样很可能会和现有变量冲突. 另外, 如果没有加上, 很难明确该变量的作用域是什么, 变量也很可能像在局部作用域中, 很轻易地泄漏到 Document 或者 Window 中, 所以务必用 var 去声明变量.</p>
 <p>分号<br>总是使用分号<br>如果仅依靠语句间的隐式分隔, 有时会很麻烦. 你自己更能清楚哪里是语句的起止,而且有些情况下，漏掉分号会很危险。</p>
 <p>块内函数声明<br>不要在块内声明一个函数，不推荐一下写法：</p>
@@ -411,10 +433,48 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function foo(element, a, b) &#123;</span><br><span class="line">  element.onclick = function() &#123; /* uses a and b */ &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这里, 即使没有使用 element, 闭包也保留了 element, a 和 b 的引用, . 由于 element 也保留了对闭包的引用, 这就产生了循环引用, 这就不能被 GC 回收.<br>这种情况下, 可将代码重构为:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function foo(element, a, b) &#123;</span><br><span class="line">  element.onclick = bar(a, b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function bar(a, b) &#123;</span><br><span class="line">  return function() &#123; /* uses a and b */ &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>不使用eval()函数<br>就如eval的字面意思来说，恶魔，使用eval()函数会带来安全隐患。<br>eval()函数的作用是返回任意字符串，当作js代码来处理</p>
 <p>this<br>仅在对象构造器, 方法, 闭包中使用.<br>this 的语义很特别. 有时它引用一个全局对象(大多数情况下), 调用者的作用域(使用eval时), DOM 树中的节点(添加事件处理函数时), 新创建的对象(使用一个构造器), 或者其他对象(如果函数被call() 或 apply())。</p>
 <p>for-in 循环<br>最好只用于 object/map/hash 的遍历<br>对 Array 用 for-in 循环有时会出错. 因为它并不是从 0 到 length - 1 进行遍历, 而是所有出现在对象及其原型链的键值.<br>例如：给原型添加属性之后，默认情况下枚举，最后输出1234513</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function getNewArrayTwo()&#123;</span><br><span class="line">    var array=[1,2,3,4,5 ];</span><br><span class="line">    Array.prototype.age=13;</span><br><span class="line">    var result=[];</span><br><span class="line">    for(var i in array)&#123;</span><br><span class="line">        result.push(array[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    alert(result.join(&apos;&apos;));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>所以建议不要对数组执行for in循环，事实上，在高性能javascript这本书中,也强调了for in循环的不好,因为它总是会访问该对象的原型,看下原型上是否有属性,这在无意中就给遍历增加了额外的压力。</p>
+<p>使用严格等<br>总是使用 === 精确的比较操作符，避免在判断的过程中，由 JavaScript 的强制类型转换所造成的困扰。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">(function(log)&#123;  &apos;use strict&apos;;  log(&apos;0&apos; == 0); // true</span><br><span class="line">  log(&apos;&apos; == false); // true</span><br><span class="line">  log(&apos;1&apos; == true); // true</span><br><span class="line">  log(null == undefined); // true</span><br><span class="line"></span><br><span class="line">  var x = &#123;</span><br><span class="line">    valueOf: function() &#123;      return &apos;X&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;  log(x == &apos;X&apos;);</span><br><span class="line"></span><br><span class="line">&#125;(window.console.log));</span><br></pre></td></tr></table></figure>
+<p>等同== 和严格等===的区别</p>
+<ul>
+<li>==， 两边值类型不同的时候，要先进行类型转换，再比较。</li>
+<li>===，不做类型转换，类型不同的一定不等。</li>
+<li>==等同操作符</li>
+<li>如果两个值具有相同类型，会进行===比较，返回===的比较值</li>
+<li>如果两个值不具有相同类型，也有可能返回true</li>
+<li>如果一个值是null另一个值是undefined，返回true</li>
+<li>如果一个值是string另个是number，会把string转换成number再进行比较</li>
+<li>如果一个值是true，会把它转成1再比较，false会转成0</li>
+</ul>
+<p>总结一下==</p>
+<ul>
+<li>false 除了和自身比较为 true 外，和 0，”” 比较也为 true</li>
+<li>null 只和 undefined 比较时为 true， 反过来 undefined 也仅和 null 比较为 true，没有第二个</li>
+<li>0 除了和 false 比较为 true，还有空字符串 ‘’” 和空数组 []</li>
+<li><p>空字符串 ‘’ 除了和 false 比较为 true，还有一个数字 0</p>
+<p>==, &gt;, &lt;, +, -, …这些操作符所造成的隐式类型转换都是无副作用的，它不会改变变量本身保存的值。，但是，如果你覆写某个对象的 valueOf/toString的话，==就会产生副作用.<br>例如：</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Array.prototype.valueOf = function() &#123;</span><br><span class="line">  this[0]++;  return this;</span><br><span class="line">&#125;</span><br><span class="line">var x = [1, 2, 3];</span><br><span class="line">x == 0;</span><br><span class="line">console.log(x);   // [2, 2, 3]</span><br></pre></td></tr></table></figure>
+<p>===操作符：</p>
+<ul>
+<li>要是两个值类型不同，返回false</li>
+<li>要是两个值都是number类型，并且数值相同，返回true</li>
+<li>要是两个值都是stirng，并且两个值的String内容相同，返回true</li>
+<li>要是两个值都是true或者都是false，返回true</li>
+<li>要是两个值都是指向相同的Object，Arraya或者function，返回true</li>
+<li>要是两个值都是null或者都是undefined，返回true</li>
+</ul>
+<p>语言规范</p>
+<p>避免全局命名空间污染<br>防止全局命名空间被污染，我们通常的做法是将代码包裹成一个 IIFE(Immediately-Invoked Function Expression)，创建独立隔绝的定义域。也使得内存在执行完后立即释放。<br>IIFE 还可确保你的代码不会轻易被其它全局命名空间里的代码所修改（i.e. 第三方库，window 引用，被覆盖的未定义的关键字等等）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">不推荐:</span><br><span class="line">var x = 10,</span><br><span class="line">    y = 100;</span><br><span class="line"></span><br><span class="line">// Declaring variables in the global scope is resulting in global scope pollution. All variables declared like this</span><br><span class="line">// will be stored in the window object. This is very unclean and needs to be avoided.</span><br><span class="line">console.log(window.x + &apos; &apos; + window.y);</span><br><span class="line">推荐</span><br><span class="line">// We declare a IIFE and pass parameters into the function that we will use from the global space</span><br><span class="line">(function(log, w, undefined)&#123;  &apos;use strict&apos;;</span><br><span class="line"></span><br><span class="line">  var x = 10,</span><br><span class="line">      y = 100;</span><br><span class="line"></span><br><span class="line">  // Will output &apos;true true&apos;</span><br><span class="line">  log((w.x === undefined) + &apos; &apos; + (w.y === undefined));</span><br><span class="line"></span><br><span class="line">&#125;(window.console.log, window));</span><br><span class="line">推荐的IIFE写法:</span><br><span class="line">(function()&#123;  &apos;use strict&apos;;</span><br><span class="line"></span><br><span class="line">  // Code goes here</span><br><span class="line"></span><br><span class="line">&#125;());</span><br></pre></td></tr></table></figure>
+<p>如果你想引用全局变量或者是外层 IIFE 的变量，可以通过下列方式传参：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(function($, w, d)&#123;  &apos;use strict&apos;;</span><br><span class="line"></span><br><span class="line">  $(function() &#123;</span><br><span class="line">    w.alert(d.querySelectorAll(&apos;div&apos;).length);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;(jQuery, window, document));</span><br></pre></td></tr></table></figure>
 <p>编码风格</p>
 <p>明确作用域<br>任何时候都要明确作用域 – 提高可移植性和清晰度. 例如, 不要依赖于作用域链中的 window 对象.<br>可能在其他应用中, 你函数中的 window 不是指之前的那个窗口对象。  </p>
 <p>代码格式化</p>
