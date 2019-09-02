@@ -6,7 +6,7 @@
 
 
 <html class="theme-next muse use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -148,7 +148,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -158,7 +158,7 @@
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -238,20 +238,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://luotingv1.github.io/lt/2019/09/02/mpx+小程序云开发，纯前端实现书单小程序/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="luoting">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/lt/images/avatar.gif">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="四夕庭">
     </span>
 
@@ -314,14 +314,14 @@
 <p>著作权归作者所有。商业转载请联系luotingv1获得授权，非商业转载请注明出处[务必保留全文，勿做删减]。</p>
 </blockquote>
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>感谢<a href="https://juejin.im/post/5c341e1d6fb9a049f66c4876" target="_blank" rel="noopener">roberthuang</a>提供的思路。借助云开发和小程序的便利,正值公司项目没有重大更新，趁着这段空闲时间,自己构思了书单分享的小程序原型图和后台数据结构。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/9/2/16cefb979d51ed23?w=2000&amp;h=594&amp;f=jpeg&amp;s=60882" alt=""></p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/9/2/16cefb979d51ed23?w=2000&amp;h=594&amp;f=jpeg&amp;s=60882" alt></p>
 <h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><blockquote>
 <ol>
 <li>mpx框架 <a href="https://didi.github.io/mpx" target="_blank" rel="noopener">mpx官方文档</a></li>
 <li>小程序·云开发 <a href="https://link.juejin.im?target=https%3A%2F%2Fdevelopers.weixin.qq.com%2Fminiprogram%2Fdev%2Fwxcloud%2Fbasis%2Fgetting-started.html" target="_blank" rel="noopener">小程序·云开发文档</a></li>
 </ol>
 </blockquote>
-<h3 id="项目结构介绍"><a href="#项目结构介绍" class="headerlink" title="项目结构介绍"></a>项目结构介绍</h3><p><img src="https://user-gold-cdn.xitu.io/2019/9/2/16cefa298e7e6e9d?w=306&amp;h=424&amp;f=png&amp;s=31143" alt=""></p>
+<h3 id="项目结构介绍"><a href="#项目结构介绍" class="headerlink" title="项目结构介绍"></a>项目结构介绍</h3><p><img src="https://user-gold-cdn.xitu.io/2019/9/2/16cefa298e7e6e9d?w=306&amp;h=424&amp;f=png&amp;s=31143" alt></p>
 <p>static目录： 放一些公共资源，如js,css,json.</p>
 <p>function目录：云函数存放目录</p>
 <p>components目录：组件相关的.vue文件都放在这里</p>
@@ -440,19 +440,19 @@
 <p>在开发者工具工具栏左侧，点击 “云开发” 按钮即可开通云开发</p>
 </li>
 </ul>
-<p><img src="https://user-gold-cdn.xitu.io/2019/9/2/16cefe58f80d3b90?w=904&amp;h=518&amp;f=png&amp;s=67438" alt=""></p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/9/2/16cefe58f80d3b90?w=904&amp;h=518&amp;f=png&amp;s=67438" alt></p>
 <ul>
 <li><p>数据库</p>
 <p>云开发提供了一个类似mongodb的数据库</p>
 <p>我们必须构建符合我们项目数据存储要求的集合,这里主要提供2个集合的截图</p>
 </li>
 </ul>
-<p><img src="https://user-gold-cdn.xitu.io/2019/9/2/16cf00c0bbd9bac7?w=1166&amp;h=603&amp;f=png&amp;s=104532" alt=""></p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/9/2/16cf00c757c82e4f?w=1198&amp;h=626&amp;f=png&amp;s=109606" alt=""><br>bookList集合 有收藏操作的记录collect 点赞操作记录 like<br>user集合 有收藏记录collect 点赞记录 like 个人信息uesr</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/9/2/16cf00c0bbd9bac7?w=1166&amp;h=603&amp;f=png&amp;s=104532" alt></p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/9/2/16cf00c757c82e4f?w=1198&amp;h=626&amp;f=png&amp;s=109606" alt><br>bookList集合 有收藏操作的记录collect 点赞操作记录 like<br>user集合 有收藏记录collect 点赞记录 like 个人信息uesr</p>
 <ul>
 <li>存储</li>
 </ul>
-<p>云开发提供了一块存储空间，提供了上传文件到云端、带权限管理的云端下载能力，开发者可以在小程序端和云函数端通过 API 使用云存储功能。<br><img src="https://user-gold-cdn.xitu.io/2019/9/2/16cefe7debeeaa34?w=813&amp;h=514&amp;f=png&amp;s=74558" alt=""></p>
+<p>云开发提供了一块存储空间，提供了上传文件到云端、带权限管理的云端下载能力，开发者可以在小程序端和云函数端通过 API 使用云存储功能。<br><img src="https://user-gold-cdn.xitu.io/2019/9/2/16cefe7debeeaa34?w=813&amp;h=514&amp;f=png&amp;s=74558" alt></p>
 <ul>
 <li><p>云函数</p>
 <p>云函数是一段运行在云端的代码，无需管理服务器，在开发工具内编写、一键上传部署即可运行后端代码。</p>
@@ -521,14 +521,14 @@
   })
 }
 </code></pre><p>存入到数据库的信息是这样的：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/1/7/168266611e8d7daa?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/1/7/168266611e8d7daa?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
 <blockquote>
 <p>下面给大家看看云函数的使用方法：</p>
 </blockquote>
-<p>我们大部分情况在要获取数据并有分页操作的情况下会使用云函数来获取数据,先给个demo<br>在云函数指定目录建立一个文件夹类似下面目录<br><img src="https://user-gold-cdn.xitu.io/2019/9/2/16ceff8a0b6a0fab?w=168&amp;h=66&amp;f=png&amp;s=5601" alt=""></p>
+<p>我们大部分情况在要获取数据并有分页操作的情况下会使用云函数来获取数据,先给个demo<br>在云函数指定目录建立一个文件夹类似下面目录<br><img src="https://user-gold-cdn.xitu.io/2019/9/2/16ceff8a0b6a0fab?w=168&amp;h=66&amp;f=png&amp;s=5601" alt></p>
 <p>下面是云函数getClassify的index.js文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">const cloud = require(&apos;wx-server-sdk&apos;)</span><br><span class="line">cloud.init()</span><br><span class="line">const db = cloud.database()</span><br><span class="line">const MAX_LIMIT = 100</span><br><span class="line">exports.main = async (event, context) =&gt; &#123;</span><br><span class="line">  // 先取出集合记录总数</span><br><span class="line">  const countResult = await db.collection(&apos;classify&apos;).count()</span><br><span class="line">  const total = countResult.total</span><br><span class="line">  // 计算需分几次取</span><br><span class="line">  const batchTimes = Math.ceil(total / 100)</span><br><span class="line">  // 承载所有读操作的 promise 的数组</span><br><span class="line">  const tasks = []</span><br><span class="line">  for (let i = 0; i &lt; batchTimes; i++) &#123;</span><br><span class="line">    const promise = db.collection(&apos;classify&apos;).skip(i * MAX_LIMIT).limit(MAX_LIMIT).get()</span><br><span class="line">    tasks.push(promise)</span><br><span class="line">  &#125;</span><br><span class="line">  // 等待所有</span><br><span class="line">  return (await Promise.all(tasks)).reduce((acc, cur) =&gt; (&#123;</span><br><span class="line">    data: acc.data.concat(cur.data),</span><br><span class="line">    errMsg: acc.errMsg</span><br><span class="line">  &#125;))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>使用云函数前，在开发者工具上，找到getClassify目录，右键如图：</p>
-<p> <img src="https://user-gold-cdn.xitu.io/2019/1/7/16826660f26d696a?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p>
+<p> <img src="https://user-gold-cdn.xitu.io/2019/1/7/16826660f26d696a?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
 <p>点击上传并部署：云端安装依赖（不上传node_modules）</p>
 <p>安装完点击完成就能使用当前云函数了，使用方法即：</p>
 <pre><code>getClassify(context) {
@@ -669,7 +669,7 @@ exports.main = async (event, context) =&gt; {
 <li>云函数新建后一定要创建并安装依赖；</li>
 <li>数据库建立集合后记得将权限放开，否则小程序端无法操作数据库.如下图：</li>
 </ol>
-<p><img src="https://user-gold-cdn.xitu.io/2019/1/9/168305bc7c22e861?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/1/9/168305bc7c22e861?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
 <blockquote>
 <p>最后总结：</p>
 </blockquote>
@@ -771,7 +771,7 @@ exports.main = async (event, context) =&gt; {
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">luoting</p>
               <p class="site-description motion-element" itemprop="description"></p>
